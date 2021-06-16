@@ -405,6 +405,11 @@ var Args = make([]string, 0, 4)
 //   --list-options       List all known flags
 // Arguments:
 //   extraopts func() []string     This function is called by --list-options and returns extra options to display
+
+func InitOpts() {
+	opts = make([]opt, 0, 8)
+}
+
 func Parse(extraopts func() []string) bool {
 	// First we'll add the "--help" option.
 	addOpt(opt{[]string{"--help", "-h"}, "", "Show usage message", false, nil,
